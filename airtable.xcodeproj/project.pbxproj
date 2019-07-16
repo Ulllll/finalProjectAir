@@ -1,0 +1,672 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		35FC3C8422DC9E8A00B1502F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3C8322DC9E8A00B1502F /* AppDelegate.m */; };
+		35FC3C8722DC9E8A00B1502F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3C8622DC9E8A00B1502F /* ViewController.m */; };
+		35FC3C8A22DC9E8A00B1502F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3C8822DC9E8A00B1502F /* Main.storyboard */; };
+		35FC3C8C22DC9E8D00B1502F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3C8B22DC9E8D00B1502F /* Assets.xcassets */; };
+		35FC3C8F22DC9E8D00B1502F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3C8D22DC9E8D00B1502F /* LaunchScreen.storyboard */; };
+		35FC3C9222DC9E8D00B1502F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3C9122DC9E8D00B1502F /* main.m */; };
+		35FC3C9C22DC9E8E00B1502F /* airtableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3C9B22DC9E8E00B1502F /* airtableTests.m */; };
+		35FC3CA722DC9E8E00B1502F /* airtableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CA622DC9E8E00B1502F /* airtableUITests.m */; };
+		35FC3CB622DC9F7B00B1502F /* DMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CB522DC9F7B00B1502F /* DMEViewController.m */; };
+		35FC3CB922DC9FA000B1502F /* VKOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CB822DC9FA000B1502F /* VKOViewController.m */; };
+		35FC3CBC22DC9FE000B1502F /* SVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CBB22DC9FE000B1502F /* SVOViewController.m */; };
+		35FC3CC522DCA5B700B1502F /* ButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CC422DCA5B700B1502F /* ButtonViewController.m */; };
+		35FC3CC722DCC7E900B1502F /* const.strings in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3CC622DCC7E900B1502F /* const.strings */; };
+		35FC3CCB22DCD62000B1502F /* 3diuvhqe.png in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3CCA22DCD61F00B1502F /* 3diuvhqe.png */; };
+		35FC3CCD22DCD63500B1502F /* logo_h_rus_l.png in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3CCC22DCD63500B1502F /* logo_h_rus_l.png */; };
+		35FC3CD522DCE08500B1502F /* 974e1d44c5.png in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3CD422DCE08500B1502F /* 974e1d44c5.png */; };
+		35FC3CD822DCF29300B1502F /* AirViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CD722DCF29300B1502F /* AirViewController.m */; };
+		35FC3CDA22DE036F00B1502F /* const.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3CD922DE036F00B1502F /* const.plist */; };
+		35FC3CE322DE1C4B00B1502F /* AirTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CE222DE1C4B00B1502F /* AirTableViewCell.m */; };
+		35FC3CE622DE20E800B1502F /* AirTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CE522DE20E800B1502F /* AirTableView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		35FC3C9822DC9E8E00B1502F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35FC3C7722DC9E8A00B1502F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35FC3C7E22DC9E8A00B1502F;
+			remoteInfo = airtable;
+		};
+		35FC3CA322DC9E8E00B1502F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35FC3C7722DC9E8A00B1502F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35FC3C7E22DC9E8A00B1502F;
+			remoteInfo = airtable;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		35FC3C7F22DC9E8A00B1502F /* airtable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airtable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35FC3C8222DC9E8A00B1502F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		35FC3C8322DC9E8A00B1502F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		35FC3C8522DC9E8A00B1502F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		35FC3C8622DC9E8A00B1502F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		35FC3C8922DC9E8A00B1502F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		35FC3C8B22DC9E8D00B1502F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35FC3C8E22DC9E8D00B1502F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		35FC3C9022DC9E8D00B1502F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35FC3C9122DC9E8D00B1502F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		35FC3C9722DC9E8E00B1502F /* airtableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = airtableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		35FC3C9B22DC9E8E00B1502F /* airtableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = airtableTests.m; sourceTree = "<group>"; };
+		35FC3C9D22DC9E8E00B1502F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35FC3CA222DC9E8E00B1502F /* airtableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = airtableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		35FC3CA622DC9E8E00B1502F /* airtableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = airtableUITests.m; sourceTree = "<group>"; };
+		35FC3CA822DC9E8E00B1502F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35FC3CB422DC9F7B00B1502F /* DMEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMEViewController.h; sourceTree = "<group>"; };
+		35FC3CB522DC9F7B00B1502F /* DMEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMEViewController.m; sourceTree = "<group>"; };
+		35FC3CB722DC9FA000B1502F /* VKOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKOViewController.h; sourceTree = "<group>"; };
+		35FC3CB822DC9FA000B1502F /* VKOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKOViewController.m; sourceTree = "<group>"; };
+		35FC3CBA22DC9FE000B1502F /* SVOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVOViewController.h; sourceTree = "<group>"; };
+		35FC3CBB22DC9FE000B1502F /* SVOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVOViewController.m; sourceTree = "<group>"; };
+		35FC3CC322DCA5B700B1502F /* ButtonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonViewController.h; sourceTree = "<group>"; };
+		35FC3CC422DCA5B700B1502F /* ButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonViewController.m; sourceTree = "<group>"; };
+		35FC3CC622DCC7E900B1502F /* const.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = const.strings; sourceTree = "<group>"; };
+		35FC3CCA22DCD61F00B1502F /* 3diuvhqe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3diuvhqe.png; sourceTree = "<group>"; };
+		35FC3CCC22DCD63500B1502F /* logo_h_rus_l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_h_rus_l.png; sourceTree = "<group>"; };
+		35FC3CD422DCE08500B1502F /* 974e1d44c5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 974e1d44c5.png; sourceTree = "<group>"; };
+		35FC3CD622DCF29300B1502F /* AirViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirViewController.h; sourceTree = "<group>"; };
+		35FC3CD722DCF29300B1502F /* AirViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirViewController.m; sourceTree = "<group>"; };
+		35FC3CD922DE036F00B1502F /* const.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = const.plist; sourceTree = "<group>"; };
+		35FC3CE122DE1C4B00B1502F /* AirTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirTableViewCell.h; sourceTree = "<group>"; };
+		35FC3CE222DE1C4B00B1502F /* AirTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTableViewCell.m; sourceTree = "<group>"; };
+		35FC3CE422DE20E800B1502F /* AirTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirTableView.h; sourceTree = "<group>"; };
+		35FC3CE522DE20E800B1502F /* AirTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTableView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		35FC3C7C22DC9E8A00B1502F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35FC3C9422DC9E8E00B1502F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35FC3C9F22DC9E8E00B1502F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		35FC3C7622DC9E8A00B1502F = {
+			isa = PBXGroup;
+			children = (
+				35FC3C8122DC9E8A00B1502F /* airtable */,
+				35FC3C9A22DC9E8E00B1502F /* airtableTests */,
+				35FC3CA522DC9E8E00B1502F /* airtableUITests */,
+				35FC3C8022DC9E8A00B1502F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		35FC3C8022DC9E8A00B1502F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				35FC3C7F22DC9E8A00B1502F /* airtable.app */,
+				35FC3C9722DC9E8E00B1502F /* airtableTests.xctest */,
+				35FC3CA222DC9E8E00B1502F /* airtableUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		35FC3C8122DC9E8A00B1502F /* airtable */ = {
+			isa = PBXGroup;
+			children = (
+				35FC3C8222DC9E8A00B1502F /* AppDelegate.h */,
+				35FC3C8322DC9E8A00B1502F /* AppDelegate.m */,
+				35FC3CC322DCA5B700B1502F /* ButtonViewController.h */,
+				35FC3CC422DCA5B700B1502F /* ButtonViewController.m */,
+				35FC3CC622DCC7E900B1502F /* const.strings */,
+				35FC3CD922DE036F00B1502F /* const.plist */,
+				35FC3CDC22DE0B4900B1502F /* AirTable */,
+				35FC3CDB22DE0AC100B1502F /* MainVC */,
+				35FC3C8522DC9E8A00B1502F /* ViewController.h */,
+				35FC3C8622DC9E8A00B1502F /* ViewController.m */,
+				35FC3C8822DC9E8A00B1502F /* Main.storyboard */,
+				35FC3C8B22DC9E8D00B1502F /* Assets.xcassets */,
+				35FC3C8D22DC9E8D00B1502F /* LaunchScreen.storyboard */,
+				35FC3C9022DC9E8D00B1502F /* Info.plist */,
+				35FC3C9122DC9E8D00B1502F /* main.m */,
+				35FC3CD122DCD76E00B1502F /* img */,
+			);
+			path = airtable;
+			sourceTree = "<group>";
+		};
+		35FC3C9A22DC9E8E00B1502F /* airtableTests */ = {
+			isa = PBXGroup;
+			children = (
+				35FC3C9B22DC9E8E00B1502F /* airtableTests.m */,
+				35FC3C9D22DC9E8E00B1502F /* Info.plist */,
+			);
+			path = airtableTests;
+			sourceTree = "<group>";
+		};
+		35FC3CA522DC9E8E00B1502F /* airtableUITests */ = {
+			isa = PBXGroup;
+			children = (
+				35FC3CA622DC9E8E00B1502F /* airtableUITests.m */,
+				35FC3CA822DC9E8E00B1502F /* Info.plist */,
+			);
+			path = airtableUITests;
+			sourceTree = "<group>";
+		};
+		35FC3CD122DCD76E00B1502F /* img */ = {
+			isa = PBXGroup;
+			children = (
+				35FC3CCC22DCD63500B1502F /* logo_h_rus_l.png */,
+				35FC3CCA22DCD61F00B1502F /* 3diuvhqe.png */,
+				35FC3CD422DCE08500B1502F /* 974e1d44c5.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
+		35FC3CDB22DE0AC100B1502F /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				35FC3CB422DC9F7B00B1502F /* DMEViewController.h */,
+				35FC3CB522DC9F7B00B1502F /* DMEViewController.m */,
+				35FC3CB722DC9FA000B1502F /* VKOViewController.h */,
+				35FC3CB822DC9FA000B1502F /* VKOViewController.m */,
+				35FC3CBA22DC9FE000B1502F /* SVOViewController.h */,
+				35FC3CBB22DC9FE000B1502F /* SVOViewController.m */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		35FC3CDC22DE0B4900B1502F /* AirTable */ = {
+			isa = PBXGroup;
+			children = (
+				35FC3CD622DCF29300B1502F /* AirViewController.h */,
+				35FC3CD722DCF29300B1502F /* AirViewController.m */,
+				35FC3CE022DE1C2100B1502F /* Airtable */,
+			);
+			path = AirTable;
+			sourceTree = "<group>";
+		};
+		35FC3CE022DE1C2100B1502F /* Airtable */ = {
+			isa = PBXGroup;
+			children = (
+				35FC3CE122DE1C4B00B1502F /* AirTableViewCell.h */,
+				35FC3CE222DE1C4B00B1502F /* AirTableViewCell.m */,
+				35FC3CE422DE20E800B1502F /* AirTableView.h */,
+				35FC3CE522DE20E800B1502F /* AirTableView.m */,
+			);
+			path = Airtable;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		35FC3C7E22DC9E8A00B1502F /* airtable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35FC3CAB22DC9E8E00B1502F /* Build configuration list for PBXNativeTarget "airtable" */;
+			buildPhases = (
+				35FC3C7B22DC9E8A00B1502F /* Sources */,
+				35FC3C7C22DC9E8A00B1502F /* Frameworks */,
+				35FC3C7D22DC9E8A00B1502F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = airtable;
+			productName = airtable;
+			productReference = 35FC3C7F22DC9E8A00B1502F /* airtable.app */;
+			productType = "com.apple.product-type.application";
+		};
+		35FC3C9622DC9E8E00B1502F /* airtableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35FC3CAE22DC9E8E00B1502F /* Build configuration list for PBXNativeTarget "airtableTests" */;
+			buildPhases = (
+				35FC3C9322DC9E8E00B1502F /* Sources */,
+				35FC3C9422DC9E8E00B1502F /* Frameworks */,
+				35FC3C9522DC9E8E00B1502F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35FC3C9922DC9E8E00B1502F /* PBXTargetDependency */,
+			);
+			name = airtableTests;
+			productName = airtableTests;
+			productReference = 35FC3C9722DC9E8E00B1502F /* airtableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		35FC3CA122DC9E8E00B1502F /* airtableUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35FC3CB122DC9E8E00B1502F /* Build configuration list for PBXNativeTarget "airtableUITests" */;
+			buildPhases = (
+				35FC3C9E22DC9E8E00B1502F /* Sources */,
+				35FC3C9F22DC9E8E00B1502F /* Frameworks */,
+				35FC3CA022DC9E8E00B1502F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35FC3CA422DC9E8E00B1502F /* PBXTargetDependency */,
+			);
+			name = airtableUITests;
+			productName = airtableUITests;
+			productReference = 35FC3CA222DC9E8E00B1502F /* airtableUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		35FC3C7722DC9E8A00B1502F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Анастасия Рябова";
+				TargetAttributes = {
+					35FC3C7E22DC9E8A00B1502F = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					35FC3C9622DC9E8E00B1502F = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 35FC3C7E22DC9E8A00B1502F;
+					};
+					35FC3CA122DC9E8E00B1502F = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 35FC3C7E22DC9E8A00B1502F;
+					};
+				};
+			};
+			buildConfigurationList = 35FC3C7A22DC9E8A00B1502F /* Build configuration list for PBXProject "airtable" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 35FC3C7622DC9E8A00B1502F;
+			productRefGroup = 35FC3C8022DC9E8A00B1502F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				35FC3C7E22DC9E8A00B1502F /* airtable */,
+				35FC3C9622DC9E8E00B1502F /* airtableTests */,
+				35FC3CA122DC9E8E00B1502F /* airtableUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		35FC3C7D22DC9E8A00B1502F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35FC3CCB22DCD62000B1502F /* 3diuvhqe.png in Resources */,
+				35FC3CC722DCC7E900B1502F /* const.strings in Resources */,
+				35FC3CD522DCE08500B1502F /* 974e1d44c5.png in Resources */,
+				35FC3C8F22DC9E8D00B1502F /* LaunchScreen.storyboard in Resources */,
+				35FC3CDA22DE036F00B1502F /* const.plist in Resources */,
+				35FC3CCD22DCD63500B1502F /* logo_h_rus_l.png in Resources */,
+				35FC3C8C22DC9E8D00B1502F /* Assets.xcassets in Resources */,
+				35FC3C8A22DC9E8A00B1502F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35FC3C9522DC9E8E00B1502F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35FC3CA022DC9E8E00B1502F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		35FC3C7B22DC9E8A00B1502F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35FC3C8722DC9E8A00B1502F /* ViewController.m in Sources */,
+				35FC3CD822DCF29300B1502F /* AirViewController.m in Sources */,
+				35FC3CBC22DC9FE000B1502F /* SVOViewController.m in Sources */,
+				35FC3C9222DC9E8D00B1502F /* main.m in Sources */,
+				35FC3CE622DE20E800B1502F /* AirTableView.m in Sources */,
+				35FC3CE322DE1C4B00B1502F /* AirTableViewCell.m in Sources */,
+				35FC3C8422DC9E8A00B1502F /* AppDelegate.m in Sources */,
+				35FC3CC522DCA5B700B1502F /* ButtonViewController.m in Sources */,
+				35FC3CB922DC9FA000B1502F /* VKOViewController.m in Sources */,
+				35FC3CB622DC9F7B00B1502F /* DMEViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35FC3C9322DC9E8E00B1502F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35FC3C9C22DC9E8E00B1502F /* airtableTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35FC3C9E22DC9E8E00B1502F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35FC3CA722DC9E8E00B1502F /* airtableUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		35FC3C9922DC9E8E00B1502F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35FC3C7E22DC9E8A00B1502F /* airtable */;
+			targetProxy = 35FC3C9822DC9E8E00B1502F /* PBXContainerItemProxy */;
+		};
+		35FC3CA422DC9E8E00B1502F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35FC3C7E22DC9E8A00B1502F /* airtable */;
+			targetProxy = 35FC3CA322DC9E8E00B1502F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		35FC3C8822DC9E8A00B1502F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				35FC3C8922DC9E8A00B1502F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		35FC3C8D22DC9E8D00B1502F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				35FC3C8E22DC9E8D00B1502F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		35FC3CA922DC9E8E00B1502F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		35FC3CAA22DC9E8E00B1502F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		35FC3CAC22DC9E8E00B1502F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = airtable/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.airtable";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		35FC3CAD22DC9E8E00B1502F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = airtable/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.airtable";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		35FC3CAF22DC9E8E00B1502F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = airtableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.airtableTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/airtable.app/airtable";
+			};
+			name = Debug;
+		};
+		35FC3CB022DC9E8E00B1502F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = airtableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.airtableTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/airtable.app/airtable";
+			};
+			name = Release;
+		};
+		35FC3CB222DC9E8E00B1502F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = airtableUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.airtableUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = airtable;
+			};
+			name = Debug;
+		};
+		35FC3CB322DC9E8E00B1502F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = airtableUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.airtableUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = airtable;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		35FC3C7A22DC9E8A00B1502F /* Build configuration list for PBXProject "airtable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35FC3CA922DC9E8E00B1502F /* Debug */,
+				35FC3CAA22DC9E8E00B1502F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35FC3CAB22DC9E8E00B1502F /* Build configuration list for PBXNativeTarget "airtable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35FC3CAC22DC9E8E00B1502F /* Debug */,
+				35FC3CAD22DC9E8E00B1502F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35FC3CAE22DC9E8E00B1502F /* Build configuration list for PBXNativeTarget "airtableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35FC3CAF22DC9E8E00B1502F /* Debug */,
+				35FC3CB022DC9E8E00B1502F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35FC3CB122DC9E8E00B1502F /* Build configuration list for PBXNativeTarget "airtableUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35FC3CB222DC9E8E00B1502F /* Debug */,
+				35FC3CB322DC9E8E00B1502F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 35FC3C7722DC9E8A00B1502F /* Project object */;
+}
