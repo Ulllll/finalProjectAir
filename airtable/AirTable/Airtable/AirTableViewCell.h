@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AirTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *disLabel;
-@property (nonatomic, strong) UILabel *dataLeftLabel;
+@property (nonatomic, strong) UILabel *number;
 @property (nonatomic, strong) UILabel *dataRightLabel;
 
 @end

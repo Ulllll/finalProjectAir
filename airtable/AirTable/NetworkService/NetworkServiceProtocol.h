@@ -10,7 +10,11 @@
 @optional
 
 - (void)loadingContinuesWithProgress:(double)progress;
-- (void)loadingIsDoneWithDataRecieved:(NSData *)dataRecieved;
+- (void)loadingIsDoneWithDataRecieved:(NSDictionary *)dataRecieved;
+//- (void)loadToFrom:(NSString *)toFrom;
+//- (void)loadTimeTo:(NSString *)timeTo;
+//- (void)loadTimeFrom:(NSString *)timeFrom;
+
 
 @end
 

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AirViewController : UIViewController
 
+@property (nonatomic, strong) NSDictionary *lets;
+
 @end
 
 NS_ASSUME_NONNULL_END

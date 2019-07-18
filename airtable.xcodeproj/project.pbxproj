@@ -27,6 +27,8 @@
 		35FC3CDA22DE036F00B1502F /* const.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3CD922DE036F00B1502F /* const.plist */; };
 		35FC3CE322DE1C4B00B1502F /* AirTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CE222DE1C4B00B1502F /* AirTableViewCell.m */; };
 		35FC3CE622DE20E800B1502F /* AirTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CE522DE20E800B1502F /* AirTableView.m */; };
+		35FC3CEE22DF063100B1502F /* NetworkSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CED22DF063100B1502F /* NetworkSearch.m */; };
+		35FC3CF122DF06A400B1502F /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CF022DF06A400B1502F /* NetworkService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,11 @@
 		35FC3CE222DE1C4B00B1502F /* AirTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTableViewCell.m; sourceTree = "<group>"; };
 		35FC3CE422DE20E800B1502F /* AirTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirTableView.h; sourceTree = "<group>"; };
 		35FC3CE522DE20E800B1502F /* AirTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTableView.m; sourceTree = "<group>"; };
+		35FC3CEB22DF060300B1502F /* NetworkServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkServiceProtocol.h; sourceTree = "<group>"; };
+		35FC3CEC22DF063100B1502F /* NetworkSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkSearch.h; sourceTree = "<group>"; };
+		35FC3CED22DF063100B1502F /* NetworkSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkSearch.m; sourceTree = "<group>"; };
+		35FC3CEF22DF06A400B1502F /* NetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		35FC3CF022DF06A400B1502F /* NetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +205,7 @@
 			children = (
 				35FC3CD622DCF29300B1502F /* AirViewController.h */,
 				35FC3CD722DCF29300B1502F /* AirViewController.m */,
+				35FC3CF222DF0BC300B1502F /* NetworkService */,
 				35FC3CE022DE1C2100B1502F /* Airtable */,
 			);
 			path = AirTable;
@@ -212,6 +220,18 @@
 				35FC3CE522DE20E800B1502F /* AirTableView.m */,
 			);
 			path = Airtable;
+			sourceTree = "<group>";
+		};
+		35FC3CF222DF0BC300B1502F /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				35FC3CEB22DF060300B1502F /* NetworkServiceProtocol.h */,
+				35FC3CEC22DF063100B1502F /* NetworkSearch.h */,
+				35FC3CED22DF063100B1502F /* NetworkSearch.m */,
+				35FC3CEF22DF06A400B1502F /* NetworkService.h */,
+				35FC3CF022DF06A400B1502F /* NetworkService.m */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35FC3CEE22DF063100B1502F /* NetworkSearch.m in Sources */,
 				35FC3C8722DC9E8A00B1502F /* ViewController.m in Sources */,
 				35FC3CD822DCF29300B1502F /* AirViewController.m in Sources */,
 				35FC3CBC22DC9FE000B1502F /* SVOViewController.m in Sources */,
@@ -358,6 +379,7 @@
 				35FC3C8422DC9E8A00B1502F /* AppDelegate.m in Sources */,
 				35FC3CC522DCA5B700B1502F /* ButtonViewController.m in Sources */,
 				35FC3CB922DC9FA000B1502F /* VKOViewController.m in Sources */,
+				35FC3CF122DF06A400B1502F /* NetworkService.m in Sources */,
 				35FC3CB622DC9F7B00B1502F /* DMEViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,7 +27,7 @@
     VKOViewController *VKO = [[VKOViewController alloc] init];
     SVOViewController *SVO = [[SVOViewController alloc] init];
     
-    NSArray* controllers = [NSArray arrayWithObjects:DME, VKO, SVO, nil];
+    NSArray* controllers = @[DME, VKO, SVO];
     
     DME.tabBarItem.title = @"DME";
     VKO.tabBarItem.title = @"VKO";

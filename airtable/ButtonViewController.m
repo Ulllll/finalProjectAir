@@ -89,20 +89,15 @@
 - (void)pushButton: (UIButton *)button
 {
     [UIView animateWithDuration:0.3f
-                     animations:^
-     {
-         button.transform = CGAffineTransformMakeScale(0.9, 0.9);
-     }
-                     completion:^(BOOL finished)
-     {
-         [UIView animateWithDuration:0.3f
-                          animations:^
-          {
-              button.transform = CGAffineTransformMakeScale(1.0, 1.0);
-          }
-          ];
-     }
-     ];
+                     animations:^{
+                         button.transform = CGAffineTransformMakeScale(0.9, 0.9);
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:0.3f
+                                          animations:^{
+                                              button.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                          }];
+                     }];
 }
 
 - (void)clickButton: (UIButton *)button

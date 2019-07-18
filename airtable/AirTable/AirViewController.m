@@ -10,11 +10,21 @@
 //#import "const.strings"
 #import "Airtable/AirTableView.h"
 
-@interface AirViewController ()
+
+
+
+static const CGFloat ATEfdfs = 20.f;
+
+@interface AirViewController () 
 
 @property (nonatomic, strong) UIView *header;
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic, strong) AirTableView *airtable;
+@property (nonatomic, strong) NSMutableArray<NSString *> *fromTo;
+@property (nonatomic, strong) NSMutableArray<NSString *> *timeTo;
+@property (nonatomic, strong) NSMutableArray<NSString *> *NN;
+
+
 
 @end
 
@@ -89,4 +99,47 @@
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
+- (void)loadingContinuesWithProgress:(double)progress
+{
+    
+}
+
+
+
+
 @end
+
+//schedule =     (
+//                {
+//                    arrival = "<null>";
+//                    days = "17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31\U00a0\U0438\U044e\U043b\U044f, 1, 2, 3, 4, 5\U00a0\U0430\U0432\U0433\U0443\U0441\U0442\U0430, \U2026";
+//                    departure = "2019-07-17T00:05:00+03:00";//время отправления
+//                    "except_days" = "<null>";
+//                    "is_fuzzy" = 0;
+//                    platform = "";
+//                    stops = "";
+//                    terminal = "<null>";
+//                    thread =             {
+//                        carrier =                 {
+//                            code = 26;
+//                            codes =                     {
+//                                iata = SU;
+//                                icao = AFL;
+//                                sirena = "\U0421\U0423";
+//                            };
+//                            title = "\U0410\U044d\U0440\U043e\U0444\U043b\U043e\U0442";//направление
+//                        };
+//                        "express_type" = "<null>";
+//                        number = "SU 1424";// номер рейса
+//                        "short_title" = "\U041c\U043e\U0441\U043a\U0432\U0430 \U2014 \U0427\U0435\U043b\U044f\U0431\U0438\U043d\U0441\U043a";//тоже направление
+//                        title = "\U041c\U043e\U0441\U043a\U0432\U0430 \U2014 \U0427\U0435\U043b\U044f\U0431\U0438\U043d\U0441\U043a";
+//                        "transport_subtype" =                 {
+//                            code = "<null>";
+//                            color = "<null>";
+//                            title = "<null>";
+//                        };
+//                        "transport_type" = plane;
+//                        uid = "SU-1424_2_c26_547";
+//                        vehicle = "Airbus A320";
+//                    };
+//                },

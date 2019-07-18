@@ -13,11 +13,13 @@
 + (NSString *)URLForSearchString:(NSString *)searchString
 {
     NSString *APIKey = @"b1f9bae6-848a-42a1-b7cd-3b9790ac360f";
-    NSString *date = @"2019-07-17";
-    NSString *search = [NSString stringWithFormat:@"https://api.rasp.yandex.net/v3.0/schedule/?apikey=%@&station=s9600213&transport_type=plane&event=departure&data=%@&limit=2200", APIKey, date];
+    NSString *date = @"2019-07-17T17:00:00";
+    NSString *search = [NSString stringWithFormat:@"https://api.rasp.yandex.net/v3.0/schedule/?apikey=%@&station=s9600213&date=%@&transport_type=plane&event=departure&limit=2200", APIKey, date];
     NSLog(@"%@", search);
     return search;
     
 }
 
 @end
+
+
