@@ -6,10 +6,10 @@
 //  Copyright © 2019 Анастасия Рябова. All rights reserved.
 //
 
-#import "NetworkService.h"
-#import "NetworkSearch.h"
+#import "ATPNetworkService.h"
+#import "ATPNetworkSearch.h"
 
-@interface NetworkService()
+@interface ATPNetworkService()
 
 @property (nonatomic, strong) NSURLSession *urlSession;
 @property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation NetworkService
+@implementation ATPNetworkService
 
 - (void)configureUrlSessionWithParams:(NSDictionary *)params
 {
@@ -39,7 +39,7 @@
 
 - (void)getDataForTable:(NSString *)event plusStation:(NSString *)station
 {
-    NSString *urlString = [NetworkSearch URLForAirTable:event plusStation:station];
+    NSString *urlString = [ATPNetworkSearch URLForAirTable:event plusStation:station];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString: urlString]];

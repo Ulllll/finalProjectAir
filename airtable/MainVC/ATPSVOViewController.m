@@ -7,27 +7,27 @@
 //
 // оранжевый, белый, черный
 
-#import "SVOViewController.h"
-#import "ButtonViewController.h"
+#import "ATPSVOViewController.h"
+#import "ATPButtonViewController.h"
 
-@interface SVOViewController ()
+@interface ATPSVOViewController ()
 
-@property (nonatomic, strong) ButtonViewController *btnView;
+@property (nonatomic, strong) ATPButtonViewController *btnView;
 
 @end
 
-@implementation SVOViewController
+@implementation ATPSVOViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.btnView = [[ButtonViewController alloc]init];
+    self.btnView = [[ATPButtonViewController alloc]init];
     [self.btnView getColor:[UIColor colorWithRed:255.0/255.0 green:141.0/255.0 blue:32.0/255.0 alpha:1] plusColor:[UIColor colorWithRed:21.0/255.0 green:21.0/255.0 blue:21.0/255.0 alpha:1] plusStation:@"s9600213"];
     [self.btnView getImgName:@"logoSVO"];
     [self displayButtonController:self.btnView];
 }
 
-- (void) displayButtonController: (ButtonViewController*) content;
+- (void) displayButtonController: (ATPButtonViewController*) content;
 {
     [self addChildViewController:content];
     content.view.frame = CGRectMake(0.f, 0.f, self.view.frame.size.width, self.view.frame.size.height);

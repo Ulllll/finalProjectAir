@@ -7,28 +7,28 @@
 //
 //серо-коричневы, зелено-коричневый, белый
 
-#import "DMEViewController.h"
-#import "ButtonViewController.h"
+#import "ATPDMEViewController.h"
+#import "ATPButtonViewController.h"
 
-@interface DMEViewController ()
+@interface ATPDMEViewController ()
 
-@property (nonatomic, strong) ButtonViewController *btnView;
+@property (nonatomic, strong) ATPButtonViewController *btnView;
 
 @end
 
-@implementation DMEViewController
+@implementation ATPDMEViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.btnView = [[ButtonViewController alloc]init];
+    self.btnView = [[ATPButtonViewController alloc]init];
     [self.btnView getColor:[UIColor colorWithRed:78.0/255.0 green:120.0/255.0 blue:126.0/255.0 alpha:1] plusColor:[UIColor colorWithRed:112.0/255.0 green:92.0/255.0 blue:92.0/255.0 alpha:1] plusStation:@"s9600216"];
     [self.btnView getImgName:@"logoDME"];
     [self displayButtonController:self.btnView];
 
 }
 
-- (void) displayButtonController: (ButtonViewController*) content;
+- (void) displayButtonController: (ATPButtonViewController*) content;
 {
     [self addChildViewController:content];
     content.view.frame = CGRectMake(0.f, 0.f, self.view.frame.size.width, self.view.frame.size.height);

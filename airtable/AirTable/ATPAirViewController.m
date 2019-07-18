@@ -9,8 +9,6 @@
 #import "ATPAirViewController.h"
 #import "Airtable/ATPAirTableView.h"
 
-
-
 static const CGFloat fontSize = 20.f;
 static const CGFloat borderWidth = 1.5;
 static const CGFloat headerHeight = 100.f;

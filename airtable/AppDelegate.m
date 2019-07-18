@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "DMEViewController.h"
-#import "VKOViewController.h"
-#import "SVOViewController.h"
+#import "ATPDMEViewController.h"
+#import "ATPVKOViewController.h"
+#import "ATPSVOViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,9 +23,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     _myBarController = [[UITabBarController alloc]init];
     
-    DMEViewController *DME = [[DMEViewController alloc] init];
-    VKOViewController *VKO = [[VKOViewController alloc] init];
-    SVOViewController *SVO = [[SVOViewController alloc] init];
+    ATPDMEViewController *DME = [[ATPDMEViewController alloc] init];
+    ATPVKOViewController *VKO = [[ATPVKOViewController alloc] init];
+    ATPSVOViewController *SVO = [[ATPSVOViewController alloc] init];
     
     NSArray* controllers = @[DME, VKO, SVO];
     

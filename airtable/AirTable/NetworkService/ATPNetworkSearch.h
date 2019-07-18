@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NetworkSearch : NSObject
+@interface ATPNetworkSearch : NSObject
 
 + (NSString *)URLForAirTable:(NSString *)event
                  plusStation:(NSString *)station;

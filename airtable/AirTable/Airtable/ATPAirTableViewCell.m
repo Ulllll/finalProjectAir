@@ -6,13 +6,13 @@
 //  Copyright © 2019 Анастасия Рябова. All rights reserved.
 //
 
-#import "AirTableViewCell.h"
+#import "ATPAirTableViewCell.h"
 
 static const CGFloat plusHeightLabel = 8.f;
 static const CGFloat leadingLabel = 6.f;
 static const CGFloat labelFontSize = 17.f;
 
-@implementation AirTableViewCell
+@implementation ATPAirTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

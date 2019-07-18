@@ -6,24 +6,24 @@
 //  Copyright © 2019 Анастасия Рябова. All rights reserved.
 //
 
-#import "AirTableView.h"
-#import "AirTableViewCell.h"
-#import "NetworkServiceProtocol.h"
-#import "NetworkService.h"
+#import "ATPAirTableView.h"
+#import "ATPAirTableViewCell.h"
+#import "ATPNetworkServiceProtocol.h"
+#import "ATPNetworkService.h"
 
 static const CGFloat heightOgRows = 65.f;
 
-@interface AirTableView()<UITableViewDelegate, UITableViewDataSource, NSLayoutManagerDelegate, NetworkServiceOutputProtocol>
+@interface ATPAirTableView()<UITableViewDelegate, UITableViewDataSource, NSLayoutManagerDelegate, NetworkServiceOutputProtocol>
 
-@property (nonatomic, strong) AirTableViewCell *customCell;
+@property (nonatomic, strong) ATPAirTableViewCell *customCell;
 @property (nonatomic, strong) NSMutableArray *allScheduleForTable;
-@property (nonatomic, strong) NetworkService *networkService;
+@property (nonatomic, strong) ATPNetworkService *networkService;
 @property (nonatomic, strong) NSString *okGetStation;
 @property (nonatomic, strong) NSString *okGetEvent;
 
 @end
 
-@implementation AirTableView
+@implementation ATPAirTableView
 
 - (instancetype)init
 {
@@ -51,7 +51,7 @@ static const CGFloat heightOgRows = 65.f;
 
 - (void)startLoad
 {
-    _networkService = [NetworkService new];
+    _networkService = [ATPNetworkService new];
     _networkService.output = self;
     [_networkService configureUrlSessionWithParams:nil];
     [_networkService getDataForTable:self.okGetEvent plusStation:self.okGetStation];
@@ -62,7 +62,7 @@ static const CGFloat heightOgRows = 65.f;
     self.delegate = self;
     self.dataSource = self;
     
-    [self registerClass:[AirTableViewCell class] forCellReuseIdentifier:NSStringFromClass([AirTableViewCell class])];
+    [self registerClass:[ATPAirTableViewCell class] forCellReuseIdentifier:NSStringFromClass([ATPAirTableViewCell class])];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -72,7 +72,7 @@ static const CGFloat heightOgRows = 65.f;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.customCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AirTableViewCell class]) forIndexPath:indexPath];
+    self.customCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATPAirTableViewCell class]) forIndexPath:indexPath];
     
     @try {
         NSString *oneToFrom = self.allScheduleForTable[indexPath.row][@"thread"][@"title"];

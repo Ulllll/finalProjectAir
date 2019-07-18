@@ -6,9 +6,9 @@
 //  Copyright © 2019 Анастасия Рябова. All rights reserved.
 //
 
-#import "NetworkSearch.h"
+#import "ATPNetworkSearch.h"
 
-@implementation NetworkSearch
+@implementation ATPNetworkSearch
 
 + (NSString *)URLForAirTable:(NSString *)event
                  plusStation:(NSString *)station

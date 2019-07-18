@@ -8,27 +8,27 @@
 
 // желтый, белый, голубой
 
-#import "VKOViewController.h"
-#import "ButtonViewController.h"
+#import "ATPVKOViewController.h"
+#import "ATPButtonViewController.h"
 
-@interface VKOViewController ()
+@interface ATPVKOViewController ()
 
-@property (nonatomic, strong) ButtonViewController *btnView;
+@property (nonatomic, strong) ATPButtonViewController *btnView;
 
 @end
 
-@implementation VKOViewController
+@implementation ATPVKOViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.btnView = [[ButtonViewController alloc]init];
+    self.btnView = [[ATPButtonViewController alloc]init];
     [self.btnView getColor:[UIColor colorWithRed:38.0/255.0 green:126.0/255.0 blue:255.0/255.0 alpha:1] plusColor:[UIColor colorWithRed:255.0/255.0 green:198.0/255.0 blue:21.0/255.0 alpha:1] plusStation:@"s9600215"];
     [self.btnView getImgName:@"logoVKO"];
     [self displayButtonController:self.btnView];
 }
 
-- (void) displayButtonController: (ButtonViewController*) content;
+- (void) displayButtonController: (ATPButtonViewController*) content;
 {
     [self addChildViewController:content];
     content.view.frame = CGRectMake(0.f, 0.f, self.view.frame.size.width, self.view.frame.size.height);

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AirViewController : UIViewController
+@interface ATPAirViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *lets;
 - (void)getStationForUrl: (NSString *)station plusEvent: (NSString *)event;

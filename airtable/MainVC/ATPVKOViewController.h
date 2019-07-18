@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VKOViewController : UIViewController
+@interface ATPVKOViewController : UIViewController
 
 @end
 
