@@ -11,11 +11,15 @@
 #import "NetworkServiceProtocol.h"
 #import "NetworkService.h"
 
+static const CGFloat heightOgRows = 65.f;
+
 @interface AirTableView()<UITableViewDelegate, UITableViewDataSource, NSLayoutManagerDelegate, NetworkServiceOutputProtocol>
 
 @property (nonatomic, strong) AirTableViewCell *customCell;
 @property (nonatomic, strong) NSMutableArray *allScheduleForTable;
 @property (nonatomic, strong) NetworkService *networkService;
+@property (nonatomic, strong) NSString *okGetStation;
+@property (nonatomic, strong) NSString *okGetEvent;
 
 @end
 
@@ -28,14 +32,29 @@
     {
         self.backgroundColor = [UIColor whiteColor];
         
-        _networkService = [NetworkService new];
-        _networkService.output = self;
-        [_networkService configureUrlSessionWithParams:nil];
-        [_networkService getDataForTable:@"NN"];
-        
         [self initUI];
     }
     return self;
+}
+
+- (void)oneOfTheLastStepToGetStationAndEvent:(NSString *)station plusEventOfVC:(NSString *)event
+{
+    _okGetStation = [NSString new];
+    _okGetStation = station;
+    
+    _okGetEvent = [NSString new];
+    _okGetEvent = event;
+    
+    [self startLoad];
+    
+}
+
+- (void)startLoad
+{
+    _networkService = [NetworkService new];
+    _networkService.output = self;
+    [_networkService configureUrlSessionWithParams:nil];
+    [_networkService getDataForTable:self.okGetEvent plusStation:self.okGetStation];
 }
 
 - (void)initUI
@@ -62,12 +81,14 @@
         NSString *oneNN = self.allScheduleForTable[indexPath.row][@"thread"][@"number"];
         [self.customCell.number setText:oneNN];
         
-        NSString *oneTime = self.allScheduleForTable[indexPath.row][@"departure"];
+        NSString *oneTime = self.allScheduleForTable[indexPath.row][self.okGetEvent];
         NSString *shortTime = [oneTime substringWithRange:NSMakeRange(11, 8)];
         [self.customCell.dataRightLabel setText:shortTime];
-    } @catch (NSException *exception) {
+    } @catch (NSException *exception)
+    {
         
-    } @finally {
+    } @finally
+    {
         
     }
     
@@ -76,18 +97,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100.f;
+    return heightOgRows;
 }
 
 - (void)loadingIsDoneWithDataRecieved:(NSDictionary *)dataRecieved
 {
     NSString *totalString = [[dataRecieved objectForKey:@"pagination"] objectForKey:@"total"];
     NSInteger totalInt = totalString.integerValue;
-    //NSLog(@"%@", dataRecieved);
-    
-    //    self.fromTo = [NSMutableArray new];
-    //    self.timeTo = [NSMutableArray new];
-    //    self.NN = [NSMutableArray new];
+
     self.allScheduleForTable = [NSMutableArray new];
     
     
@@ -96,51 +113,26 @@
     dateFormatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"ru_RU"];
     [dateFormatter setLocalizedDateFormatFromTemplate:@"HH"];
     NSString *timeNow = [dateFormatter stringFromDate:dateNow];
-    NSLog(@"timeNow %@", timeNow);
     
     for (NSUInteger i = 0; i < totalInt; i++)
     {
         NSMutableDictionary *oneSheduleForGetData = dataRecieved[@"schedule"][i];
         //       NSLog(@"%@", oneSheduleForGetData);
-        NSString *hourForDiffPlane = oneSheduleForGetData[@"departure"];
-        NSLog(@"hourFor %@", hourForDiffPlane);
+        NSString *hourForDiffPlane = oneSheduleForGetData[self.okGetEvent];
         NSString *isHourEqualHourNow = [hourForDiffPlane substringWithRange:NSMakeRange(11, 2)];
-        NSLog(@"letsTime %@", isHourEqualHourNow);
         NSInteger hourGo = timeNow.integerValue;
         NSInteger hourNow = isHourEqualHourNow.integerValue;
         if (hourNow >= hourGo)
         {
             [self.allScheduleForTable addObject:oneSheduleForGetData];
         }
-        
-        //        NSString *oneFromTo = [NSString new];
-        //        oneFromTo = [[oneSheduleForGetData objectForKey:@"thread"] objectForKey:@"title"];
-        //        [self.fromTo addObject: oneFromTo];
-        //
-        //        NSString *oneTimeTo = [NSString new];
-        //        oneTimeTo = [oneSheduleForGetData objectForKey:@"departure"];
-        //        [self.timeTo addObject:oneTimeTo];
-        //
-        //        NSString *oneNN = [NSString new];
-        //        oneNN = [[oneSheduleForGetData objectForKey:@"thread"] objectForKey:@"number"];
-        //        [self.NN addObject:oneNN];
     }
     
-    //    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:totalInt inSection:0];
-    //    [self.airtable reloadRowsAtIndexPaths:indexPath withRowAnimation:UITableViewRowAnimationTop];
-    
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(5) inSection:0];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self reloadData];
-                    }
+                                                [self reloadData];
+                                                }
 );
-//    dispatch_main(
-//                  {
-//                      [self reloadRowsAtIndexPaths:indexPath withRowAnimation:UITableViewRowAnimationTop]
-//                  }
-//    );
-    //NSLog(@"%@", self.allScheduleForTable);
+
 }
 
 

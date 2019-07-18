@@ -11,9 +11,7 @@
 
 - (void)loadingContinuesWithProgress:(double)progress;
 - (void)loadingIsDoneWithDataRecieved:(NSDictionary *)dataRecieved;
-//- (void)loadToFrom:(NSString *)toFrom;
-//- (void)loadTimeTo:(NSString *)timeTo;
-//- (void)loadTimeFrom:(NSString *)timeFrom;
+
 
 
 @end
@@ -27,6 +25,7 @@
 - (BOOL)resumeNetworkLoading;
 - (void)suspendNetworkLoading;
 
-- (void)getDataForTable :(NSString *)searchSrting;
+- (void)getDataForTable: (NSString *)event
+                  plusStation:(NSString *)station;
 
 @end

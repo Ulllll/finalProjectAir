@@ -1,31 +1,31 @@
 //
-//  VKOViewController.m
+//  DMEViewController.m
 //  airtable
 //
 //  Created by Анастасия Рябова on 15/07/2019.
 //  Copyright © 2019 Анастасия Рябова. All rights reserved.
 //
+//серо-коричневы, зелено-коричневый, белый
 
-// желтый, белый, голубой
-
-#import "VKOViewController.h"
+#import "DMEViewController.h"
 #import "ButtonViewController.h"
 
-@interface VKOViewController ()
+@interface DMEViewController ()
 
 @property (nonatomic, strong) ButtonViewController *btnView;
 
 @end
 
-@implementation VKOViewController
+@implementation DMEViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.btnView = [[ButtonViewController alloc]init];
-    [self.btnView getColor:[UIColor colorWithRed:38.0/255.0 green:126.0/255.0 blue:255.0/255.0 alpha:1] plusColor:[UIColor colorWithRed:255.0/255.0 green:198.0/255.0 blue:21.0/255.0 alpha:1]];
-    [self.btnView getImgName:@"logoVKO"];
+    [self.btnView getColor:[UIColor colorWithRed:78.0/255.0 green:120.0/255.0 blue:126.0/255.0 alpha:1] plusColor:[UIColor colorWithRed:112.0/255.0 green:92.0/255.0 blue:92.0/255.0 alpha:1] plusStation:@"s9600216"];
+    [self.btnView getImgName:@"logoDME"];
     [self displayButtonController:self.btnView];
+
 }
 
 - (void) displayButtonController: (ButtonViewController*) content;
@@ -35,5 +35,7 @@
     [self.view addSubview:self.btnView.view];
     [content didMoveToParentViewController:self];
 }
+
+
 
 @end

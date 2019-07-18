@@ -1,31 +1,30 @@
 //
-//  DMEViewController.m
+//  SVOViewController.m
 //  airtable
 //
 //  Created by Анастасия Рябова on 15/07/2019.
 //  Copyright © 2019 Анастасия Рябова. All rights reserved.
 //
-//серо-коричневы, зелено-коричневый, белый
+// оранжевый, белый, черный
 
-#import "DMEViewController.h"
+#import "SVOViewController.h"
 #import "ButtonViewController.h"
 
-@interface DMEViewController ()
+@interface SVOViewController ()
 
 @property (nonatomic, strong) ButtonViewController *btnView;
 
 @end
 
-@implementation DMEViewController
+@implementation SVOViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.btnView = [[ButtonViewController alloc]init];
-    [self.btnView getColor:[UIColor colorWithRed:78.0/255.0 green:120.0/255.0 blue:126.0/255.0 alpha:1] plusColor:[UIColor colorWithRed:112.0/255.0 green:92.0/255.0 blue:92.0/255.0 alpha:1]];
-    [self.btnView getImgName:@"logoDME"];
+    [self.btnView getColor:[UIColor colorWithRed:255.0/255.0 green:141.0/255.0 blue:32.0/255.0 alpha:1] plusColor:[UIColor colorWithRed:21.0/255.0 green:21.0/255.0 blue:21.0/255.0 alpha:1] plusStation:@"s9600213"];
+    [self.btnView getImgName:@"logoSVO"];
     [self displayButtonController:self.btnView];
-
 }
 
 - (void) displayButtonController: (ButtonViewController*) content;
@@ -35,7 +34,5 @@
     [self.view addSubview:self.btnView.view];
     [content didMoveToParentViewController:self];
 }
-
-
 
 @end

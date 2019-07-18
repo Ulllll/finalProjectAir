@@ -6,29 +6,30 @@
 //  Copyright © 2019 Анастасия Рябова. All rights reserved.
 //
 
-#import "AirViewController.h"
-//#import "const.strings"
-#import "Airtable/AirTableView.h"
+#import "ATPAirViewController.h"
+#import "Airtable/ATPAirTableView.h"
 
 
 
+static const CGFloat fontSize = 20.f;
+static const CGFloat borderWidth = 1.5;
+static const CGFloat headerHeight = 100.f;
+static const CGFloat buttonHeight = 50.f;
+static const CGFloat buttonTop = 40.f;
+static const CGFloat tableTop = 0.f;
 
-static const CGFloat ATEfdfs = 20.f;
-
-@interface AirViewController () 
+@interface ATPAirViewController ()
 
 @property (nonatomic, strong) UIView *header;
 @property (nonatomic, strong) UIButton *button;
-@property (nonatomic, strong) AirTableView *airtable;
-@property (nonatomic, strong) NSMutableArray<NSString *> *fromTo;
-@property (nonatomic, strong) NSMutableArray<NSString *> *timeTo;
-@property (nonatomic, strong) NSMutableArray<NSString *> *NN;
-
-
+@property (nonatomic, strong) ATPAirTableView *airtable;
+@property (nonatomic, strong) NSString *stationtForAirTableForThisVC;
+@property (nonatomic, strong) NSString *eventForAirTableForThisVC;
+@property (nonatomic, strong) NSString *textForBackButton;
 
 @end
 
-@implementation AirViewController
+@implementation ATPAirViewController
 
 - (void)viewDidLoad
 {
@@ -52,12 +53,14 @@ static const CGFloat ATEfdfs = 20.f;
 - (void)createButton
 {
     self.button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.button setTitle:@"НАЗАД" forState:UIControlStateNormal];
+    self.textForBackButton = @"назад";
+    self.textForBackButton = self.textForBackButton.uppercaseString;
+    [self.button setTitle:self.textForBackButton forState:UIControlStateNormal];
     [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.button.backgroundColor = [UIColor whiteColor];
-    [self.button.layer setBorderWidth:1.5];
+    [self.button.layer setBorderWidth:borderWidth];
     [self.button.layer setBorderColor:[[UIColor blackColor] CGColor]];
-    self.button.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+    self.button.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:fontSize];
     [self.header addSubview:self.button];
     [self.button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -69,9 +72,24 @@ static const CGFloat ATEfdfs = 20.f;
     [self removeFromParentViewController];
 }
 
+- (void)getStationForUrl:(NSString *)station plusEvent:(NSString *)event
+{
+    self.stationtForAirTableForThisVC = [NSString new];
+    self.stationtForAirTableForThisVC = station;
+    
+    self.eventForAirTableForThisVC = [NSString new];
+    self.eventForAirTableForThisVC = event;
+    
+    [self.airtable oneOfTheLastStepToGetStationAndEvent:self.stationtForAirTableForThisVC plusEventOfVC:self.eventForAirTableForThisVC];
+    
+}
+
 - (void)initAirtable
 {
-    self.airtable = [AirTableView new];
+    self.airtable = [ATPAirTableView new];
+    
+    [self.airtable oneOfTheLastStepToGetStationAndEvent:self.stationtForAirTableForThisVC plusEventOfVC:self.eventForAirTableForThisVC];
+    
     
     [self.view addSubview:self.airtable];
 }
@@ -85,14 +103,14 @@ static const CGFloat ATEfdfs = 20.f;
     NSArray<NSLayoutConstraint *> *constraints =
     @[
       [self.header.widthAnchor constraintEqualToConstant:self.view.frame.size.width],
-      [self.header.heightAnchor constraintEqualToConstant:100.f],
+      [self.header.heightAnchor constraintEqualToConstant:headerHeight],
       
       [self.button.widthAnchor constraintEqualToConstant:(self.view.frame.size.width/2)],
-      [self.button.heightAnchor constraintEqualToConstant:50.f],
+      [self.button.heightAnchor constraintEqualToConstant:buttonHeight],
       [self.button.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:self.view.frame.size.width/4],
-      [self.button.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:40.f],
+      [self.button.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:buttonTop],
       
-      [self.airtable.topAnchor constraintEqualToAnchor:self.header.bottomAnchor constant:0.f],
+      [self.airtable.topAnchor constraintEqualToAnchor:self.header.bottomAnchor constant:tableTop],
       [self.airtable.widthAnchor constraintEqualToConstant:self.view.frame.size.width],
       [self.airtable.heightAnchor constraintEqualToConstant:self.view.frame.size.height-self.header.frame.size.height],
       ];

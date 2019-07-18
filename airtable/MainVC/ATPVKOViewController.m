@@ -1,29 +1,30 @@
 //
-//  SVOViewController.m
+//  VKOViewController.m
 //  airtable
 //
 //  Created by Анастасия Рябова on 15/07/2019.
 //  Copyright © 2019 Анастасия Рябова. All rights reserved.
 //
-// оранжевый, белый, черный
 
-#import "SVOViewController.h"
+// желтый, белый, голубой
+
+#import "VKOViewController.h"
 #import "ButtonViewController.h"
 
-@interface SVOViewController ()
+@interface VKOViewController ()
 
 @property (nonatomic, strong) ButtonViewController *btnView;
 
 @end
 
-@implementation SVOViewController
+@implementation VKOViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.btnView = [[ButtonViewController alloc]init];
-    [self.btnView getColor:[UIColor colorWithRed:255.0/255.0 green:141.0/255.0 blue:32.0/255.0 alpha:1] plusColor:[UIColor colorWithRed:21.0/255.0 green:21.0/255.0 blue:21.0/255.0 alpha:1]];
-    [self.btnView getImgName:@"logoSVO"];
+    [self.btnView getColor:[UIColor colorWithRed:38.0/255.0 green:126.0/255.0 blue:255.0/255.0 alpha:1] plusColor:[UIColor colorWithRed:255.0/255.0 green:198.0/255.0 blue:21.0/255.0 alpha:1] plusStation:@"s9600215"];
+    [self.btnView getImgName:@"logoVKO"];
     [self displayButtonController:self.btnView];
 }
 

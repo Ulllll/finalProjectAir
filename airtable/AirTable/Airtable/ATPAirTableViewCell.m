@@ -8,6 +8,10 @@
 
 #import "AirTableViewCell.h"
 
+static const CGFloat plusHeightLabel = 8.f;
+static const CGFloat leadingLabel = 6.f;
+static const CGFloat labelFontSize = 17.f;
+
 @implementation AirTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -19,17 +23,17 @@
      
         _dataRightLabel = [UILabel new];
         _dataRightLabel.text  = @"Left";
-        _dataRightLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:12];
+        _dataRightLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:labelFontSize];
         [self.contentView addSubview:_dataRightLabel];
         
         _number = [UILabel new];
         _number.text  = @"Right";
-        _number.font = [UIFont fontWithName:@"Helvetica-Light" size:12];
+        _number.font = [UIFont fontWithName:@"Helvetica-Light" size:labelFontSize];
         [self.contentView addSubview:_number];
         
         _disLabel = [UILabel new];
         _disLabel.text  = @"Dis";
-        _disLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:12];
+        _disLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:labelFontSize];
         [self.contentView addSubview:_disLabel];
 
         
@@ -48,19 +52,19 @@
     
     NSArray<NSLayoutConstraint *> *constraints =
     @[
-      [self.disLabel.widthAnchor constraintEqualToConstant:self.frame.size.width/2],
-      [self.disLabel.heightAnchor constraintEqualToConstant:self.frame.size.height/2+8.f],
-      [self.disLabel.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:10.f],
+      [self.disLabel.widthAnchor constraintEqualToConstant:self.frame.size.width/2+self.frame.size.width/4-plusHeightLabel],
+      [self.disLabel.heightAnchor constraintEqualToConstant:self.frame.size.height/2+plusHeightLabel],
+      [self.disLabel.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:leadingLabel],
       [self.disLabel.topAnchor constraintEqualToAnchor:self.topAnchor constant:self.frame.size.height/4],
       
       [self.number.widthAnchor constraintEqualToConstant:self.frame.size.width/4],
-      [self.number.heightAnchor constraintEqualToConstant:self.frame.size.height/2+8.f],
-      [self.number.leadingAnchor constraintEqualToAnchor:self.disLabel.trailingAnchor constant:10.f],
+      [self.number.heightAnchor constraintEqualToConstant:self.frame.size.height/2+plusHeightLabel],
+      [self.number.leadingAnchor constraintEqualToAnchor:self.disLabel.trailingAnchor constant:leadingLabel],
       [self.number.topAnchor constraintEqualToAnchor:self.topAnchor constant:self.frame.size.height/4],
       
       [self.dataRightLabel.widthAnchor constraintEqualToConstant:self.frame.size.width/4],
-      [self.dataRightLabel.heightAnchor constraintEqualToConstant:self.frame.size.height/2+8.f],
-      [self.dataRightLabel.leadingAnchor constraintEqualToAnchor:self.number.trailingAnchor constant:10.f],
+      [self.dataRightLabel.heightAnchor constraintEqualToConstant:self.frame.size.height/2+plusHeightLabel],
+      [self.dataRightLabel.leadingAnchor constraintEqualToAnchor:self.number.trailingAnchor constant:leadingLabel],
       [self.dataRightLabel.topAnchor constraintEqualToAnchor:self.topAnchor constant:self.frame.size.height/4],
       ];
     [NSLayoutConstraint activateConstraints:constraints];

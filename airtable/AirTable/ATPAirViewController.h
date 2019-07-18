@@ -1,5 +1,5 @@
 //
-//  ButtonViewController.h
+//  AirViewController.h
 //  airtable
 //
 //  Created by Анастасия Рябова on 15/07/2019.
@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ButtonViewController : UIViewController
+@interface AirViewController : UIViewController
 
-- (void)getColor:(UIColor *)upColor plusColor: (UIColor *)downColor;
-- (void)getImgName: (NSString *)name;
+@property (nonatomic, strong) NSDictionary *lets;
+- (void)getStationForUrl: (NSString *)station plusEvent: (NSString *)event;
 
 @end
 

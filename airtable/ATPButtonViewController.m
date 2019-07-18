@@ -7,12 +7,23 @@
 //
 // вью с кнопками, кнопки создаются по функции в которую передаются цвета
 
-#import "ButtonViewController.h"
-#import "AirViewController.h"
-#import "const.strings"
-//#import "const.plist"
+#import "ATPButtonViewController.h"
+#import "ATPAirViewController.h"
+//#import "const.strings"
 
-@interface ButtonViewController ()
+static const CGFloat heightButton = 100.f;
+static const CGFloat spacingBetweenButton = 20.f;
+static const CGFloat upFromCenterView = 110.f;
+static const CGFloat fontSize = 20.f;
+static const CGFloat imgHeight = 150.f;
+static const CGFloat upFromTopForImage = 70.f;
+static const CGFloat subForLeadingForImage = 10.f;
+static const CGFloat subForWidthForImage = 20.f;
+static const CGFloat timeForAnimationForButton = 0.3;
+static const CGFloat transformButtonIn = 0.9;
+static const CGFloat transformButtonOut = 1.0;
+
+@interface ATPButtonViewController ()
 
 @property (nonatomic, strong) UIButton *upButton;
 @property (nonatomic, strong) UIButton *downButton;
@@ -20,12 +31,15 @@
 @property (nonatomic, strong) UIColor *downColor;
 @property (nonatomic, strong) NSString *imgName;
 @property (nonatomic, strong) UIImageView *logo;
-@property (nonatomic, strong) AirViewController *airtable;
-
+@property (nonatomic, strong) ATPAirViewController *airtable;
+@property (nonatomic, strong) NSString *station;
+@property (nonatomic, strong) NSString *eventForAirTable;
+@property (nonatomic, strong) NSString *textForButtonTo;
+@property (nonatomic, strong) NSString *textForButtonFrom;
 
 @end
 
-@implementation ButtonViewController
+@implementation ATPButtonViewController
 
 - (void)viewDidLoad
 {
@@ -34,20 +48,24 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self createLogo];
     [self createButton:self.upColor plusColor:self.downColor];
-    
-    self.airtable = [[AirViewController alloc]init];
+
+    self.airtable = [[ATPAirViewController alloc]init];
     
     [self setupConstraints];
 }
 
-- (void)getColor:(UIColor *)upColor
-       plusColor:(UIColor *)downColor
+- (void)getColor:(UIColor *)upColor plusColor:(UIColor *)downColor plusStation:(NSString *)station
 {
     self.upColor = [UIColor new];
     self.upColor = upColor;
     
     self.downColor = [UIColor new];
     self.downColor = downColor;
+    
+    self.station = [NSString new];
+    self.station = station;
+    
+    self.eventForAirTable = [NSString new];
     
 }
 
@@ -61,20 +79,29 @@
            plusColor: (UIColor *)downButtonColor
 {
     self.upButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.upButton setTitle:@"ТАБЛО ВЫЛЕТА" forState:UIControlStateNormal];
+    self.textForButtonTo = @"табло вылета";
+    self.textForButtonTo = self.textForButtonTo.uppercaseString;
+    [self.upButton setTitle:self.textForButtonTo forState:UIControlStateNormal];
     self.upButton.backgroundColor = upButtonColor;
     self.upButton.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:fontSize];
     [self.view addSubview:self.upButton];
+    
+    
     [self.upButton addTarget:self action:@selector(pushButton:) forControlEvents:UIControlEventTouchDown];
     [self.upButton addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
     
     self.downButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.downButton setTitle:@"ТАБЛО ПРИЛЕТА" forState:UIControlStateNormal];
+    self.textForButtonFrom = @"табло прилета";
+    self.textForButtonFrom = self.textForButtonFrom.uppercaseString;
+    [self.downButton setTitle:self.textForButtonFrom forState:UIControlStateNormal];
     self.downButton.backgroundColor = downButtonColor;
     self.downButton.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:fontSize];
     [self.view addSubview:self.downButton];
+    
+    
     [self.downButton addTarget:self action:@selector(pushButton:) forControlEvents:UIControlEventTouchDown];
     [self.downButton addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)createLogo
@@ -84,36 +111,43 @@
     self.logo.image = [UIImage imageNamed:self.imgName];
     
     [self.view addSubview:self.logo];
+    
+    self.logo.translatesAutoresizingMaskIntoConstraints = NO;
+    
 }
 
 - (void)pushButton: (UIButton *)button
 {
-    [UIView animateWithDuration:0.3f
+    [UIView animateWithDuration:timeForAnimationForButton
                      animations:^{
-                         button.transform = CGAffineTransformMakeScale(0.9, 0.9);
+                         button.transform = CGAffineTransformMakeScale(transformButtonIn, transformButtonIn);
                      }
                      completion:^(BOOL finished) {
-                         [UIView animateWithDuration:0.3f
+                         [UIView animateWithDuration:timeForAnimationForButton
                                           animations:^{
-                                              button.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                                              button.transform = CGAffineTransformMakeScale(transformButtonOut, transformButtonOut);
                           }];
                      }];
 }
 
 - (void)clickButton: (UIButton *)button
 {
-    
-//    [self pushViewController:self.airtable animated:YES];
-    [self displayAirTable:self.airtable];
-    
-    NSLog(@"KKK");
+    if ([button.titleLabel.text isEqualToString:self.textForButtonTo])
+    {
+        self.eventForAirTable = @"departure";
+    } else if ([button.titleLabel.text isEqualToString:self.textForButtonFrom])
+    {
+        self.eventForAirTable = @"arrival";
+    }
+
+    [self displayAirTable:self.airtable plusEvent:self.eventForAirTable];
 }
 
-- (void) displayAirTable: (AirViewController*) content;
+- (void) displayAirTable: (ATPAirViewController*)content
+               plusEvent: (NSString *)event;
 {
-//    [self willMoveToParentViewController:nil];
-//    [self.view removeFromSuperview];
-//    [self removeFromParentViewController];
+    [content getStationForUrl:self.station plusEvent:event];
+    
     [self addChildViewController:content];
     content.view.frame = CGRectMake(0.f, 0.f, self.view.frame.size.width, self.view.frame.size.height);
     [self.view addSubview:self.airtable.view];
@@ -125,24 +159,24 @@
     self.upButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.downButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.logo.translatesAutoresizingMaskIntoConstraints = NO;
-    
+
     NSArray<NSLayoutConstraint *> *constraints =
     @[
       [self.upButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:(self.view.frame.size.height/2)-upFromCenterView],
       [self.upButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:(self.view.frame.size.width/2)-(self.view.frame.size.width/2)/2],
       [self.upButton.widthAnchor constraintEqualToConstant:(self.view.frame.size.width/2)],
       [self.upButton.heightAnchor constraintEqualToConstant:heightButton],
-      
+
       [self.downButton.topAnchor constraintEqualToAnchor:self.upButton.bottomAnchor constant:spacingBetweenButton],
       [self.downButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:(self.view.frame.size.width/2)-(self.view.frame.size.width/2)/2],
       [self.downButton.widthAnchor constraintEqualToConstant:(self.view.frame.size.width/2)],
       [self.downButton.heightAnchor constraintEqualToConstant:heightButton],
-      
+
       [self.logo.widthAnchor constraintEqualToConstant:self.view.frame.size.width-subForWidthForImage],
       [self.logo.heightAnchor constraintEqualToConstant:imgHeight],
       [self.logo.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:upFromTopForImage],
       [self.logo.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:subForLeadingForImage],
-      
+
       ];
     [NSLayoutConstraint activateConstraints:constraints];
 }

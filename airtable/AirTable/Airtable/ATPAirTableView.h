@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AirTableView : UITableView
 
-
+- (void)oneOfTheLastStepToGetStationAndEvent: (NSString *)station plusEventOfVC: (NSString *)event;
 
 @end
 

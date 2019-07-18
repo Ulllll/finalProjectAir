@@ -8,7 +8,6 @@
 
 #import "NetworkService.h"
 #import "NetworkSearch.h"
-#import "AirViewController.h"
 
 @interface NetworkService()
 
@@ -38,15 +37,13 @@
     self.urlSession = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:nil];
 }
 
-- (void)getDataForTable:(NSString *)searchSrting
+- (void)getDataForTable:(NSString *)event plusStation:(NSString *)station
 {
-    NSString *urlString = [NetworkSearch URLForSearchString:searchSrting];
+    NSString *urlString = [NetworkSearch URLForAirTable:event plusStation:station];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString: urlString]];
     [request setHTTPMethod:@"GET"];
-//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//    [request setTimeoutInterval:15];
     
     NSURLSessionDataTask *sessionDataTask = [self.urlSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
                 {
@@ -60,26 +57,5 @@
     [sessionDataTask resume];
 }
 
-//- (void)startLoadingData:(NSString *)urlString
-//{
-//    self.downloadTask = [self.urlSession downloadTaskWithURL:[NSURL URLWithString:urlString]];
-// //   NSLog(@"%@", self.downloadTask);
-//
-//    [self.downloadTask resume];
-//}
-
-//- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location
-//{
-////    NSData *data = [NSData dataWithContentsOfURL:location];
-////    NSLog(@"%@", location);
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self.output loadingIsDoneWithDataRecieved:self.dataNow];
-////        [self.output loadingIsDoneWithDataRecieved:self.dataNow];
-////        [self.output loadingIsDoneWithDataRecieved:self.dataNow];
-////        [self.output loadingIsDoneWithDataRecieved:self.dataNow];
-//
-//    });
-//    [session finishTasksAndInvalidate];
-//}
 
 @end
