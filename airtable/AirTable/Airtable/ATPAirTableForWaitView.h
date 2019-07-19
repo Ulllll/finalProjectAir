@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ATPAirTableForWaitView : UIView
 
+- (void)startAnimation;
+
 @end
 
 NS_ASSUME_NONNULL_END
