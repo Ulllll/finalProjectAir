@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ATPButtonViewController : UIViewController
 
-- (void)getColor:(UIColor *)upColor plusColor: (UIColor *)downColor plusStation: (NSString *)station;
+- (void)getColor:(UIColor *)upColor plusColor: (UIColor *)downColor plusStation: (NSString *)station;//передача с основного vc 
 - (void)getImgName: (NSString *)name;
 
 @end

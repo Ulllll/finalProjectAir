@@ -5,11 +5,11 @@
 //  Created by Анастасия Рябова on 15/07/2019.
 //  Copyright © 2019 Анастасия Рябова. All rights reserved.
 //
-// вью с кнопками, кнопки создаются по функции в которую передаются цвета
+
+// вью с кнопками, кнопки создаются по функции в которой передаются цвета
 
 #import "ATPButtonViewController.h"
 #import "ATPAirViewController.h"
-//#import "const.strings"
 
 static const CGFloat heightButton = 100.f;
 static const CGFloat spacingBetweenButton = 20.f;
@@ -53,7 +53,7 @@ static const CGFloat transformButtonOut = 1.0;
     
     [self setupConstraints];
 }
-
+// функция для получения цветов основного vc и необходимой станции
 - (void)getColor:(UIColor *)upColor plusColor:(UIColor *)downColor plusStation:(NSString *)station
 {
     self.upColor = [UIColor new];
@@ -68,13 +68,13 @@ static const CGFloat transformButtonOut = 1.0;
     self.eventForAirTable = [NSString new];
     
 }
-
+//получение названия нужного изображения
 - (void)getImgName: (NSString *)name
 {
     self.imgName = [NSString new];
     self.imgName = name;
 }
-
+//создание кнопок
 - (void)createButton: (UIColor *)upButtonColor
            plusColor: (UIColor *)downButtonColor
 {
@@ -87,23 +87,24 @@ static const CGFloat transformButtonOut = 1.0;
     [self.view addSubview:self.upButton];
     
     
-    [self.upButton addTarget:self action:@selector(pushButton:) forControlEvents:UIControlEventTouchDown];
-    [self.upButton addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.upButton addTarget:self action:@selector(pushButton:) forControlEvents:UIControlEventTouchDown];//нужно в случае долгого нажатия
+    [self.upButton addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];// для перехода к другому vc
     
     self.downButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
     self.textForButtonFrom = @"табло прилета";
     self.textForButtonFrom = self.textForButtonFrom.uppercaseString;
     [self.downButton setTitle:self.textForButtonFrom forState:UIControlStateNormal];
-    self.downButton.backgroundColor = downButtonColor;
     self.downButton.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:fontSize];
     [self.view addSubview:self.downButton];
     
+    self.downButton.backgroundColor = downButtonColor;
     
     [self.downButton addTarget:self action:@selector(pushButton:) forControlEvents:UIControlEventTouchDown];
     [self.downButton addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
     
 }
-
+//логотип аэропорта
 - (void)createLogo
 {
     self.logo = [UIImageView new];
@@ -115,7 +116,7 @@ static const CGFloat transformButtonOut = 1.0;
     self.logo.translatesAutoresizingMaskIntoConstraints = NO;
     
 }
-
+// анимация для долгого нажатия
 - (void)pushButton: (UIButton *)button
 {
     [UIView animateWithDuration:timeForAnimationForButton
@@ -129,9 +130,9 @@ static const CGFloat transformButtonOut = 1.0;
                           }];
                      }];
 }
-
+// переход к новому vc
 - (void)clickButton: (UIButton *)button
-{
+{   //для получения события (отправление или прибытие)
     if ([button.titleLabel.text isEqualToString:self.textForButtonTo])
     {
         self.eventForAirTable = @"departure";
@@ -142,7 +143,7 @@ static const CGFloat transformButtonOut = 1.0;
 
     [self displayAirTable:self.airtable plusEvent:self.eventForAirTable];
 }
-
+// переход к vc с передачей нужного события (отправление или прибытие) и станции
 - (void) displayAirTable: (ATPAirViewController*)content
                plusEvent: (NSString *)event;
 {

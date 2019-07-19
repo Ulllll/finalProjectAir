@@ -42,8 +42,6 @@ static const CGFloat labelFontSize = 17.f;
     return self;
 }
 
-
-
 - (void)setupConstraints
 {
     self.number.translatesAutoresizingMaskIntoConstraints = NO;

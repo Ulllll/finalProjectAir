@@ -8,6 +8,7 @@
 
 #import "ATPAirViewController.h"
 #import "Airtable/ATPAirTableView.h"
+#import "Airtable/ATPAirTableForWaitView.h"
 
 static const CGFloat fontSize = 20.f;
 static const CGFloat borderWidth = 1.5;
@@ -24,6 +25,7 @@ static const CGFloat tableTop = 0.f;
 @property (nonatomic, strong) NSString *stationtForAirTableForThisVC;
 @property (nonatomic, strong) NSString *eventForAirTableForThisVC;
 @property (nonatomic, strong) NSString *textForBackButton;
+@property (nonatomic, strong) ATPAirTableForWaitView *progress;
 
 @end
 
@@ -35,9 +37,10 @@ static const CGFloat tableTop = 0.f;
     
     [self initHeader];
     [self initAirtable];
+    [self initWait];
     [self setupConstraints];
 }
-
+// создание вьюшки с кнопкой для возможности возвращение к вьюшке с кнопками
 - (void)initHeader
 {
     self.header = [UIView new];
@@ -47,29 +50,42 @@ static const CGFloat tableTop = 0.f;
 
     [self.view addSubview:self.header];
 }
+// вьюшка "типо" загрузка, отображается 5 секунд
+- (void)initWait
+{
+    self.progress = [ATPAirTableForWaitView new];
+    
+    [self.view addSubview:self.progress];
+}
+
 
 - (void)createButton
 {
     self.button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
     self.textForBackButton = @"назад";
     self.textForBackButton = self.textForBackButton.uppercaseString;
     [self.button setTitle:self.textForBackButton forState:UIControlStateNormal];
     [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.button.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:fontSize];
+    
     self.button.backgroundColor = [UIColor whiteColor];
+    
     [self.button.layer setBorderWidth:borderWidth];
     [self.button.layer setBorderColor:[[UIColor blackColor] CGColor]];
-    self.button.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:fontSize];
+    
     [self.header addSubview:self.button];
+    
     [self.button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
 }
-
+// переход назад к вьюшке с кнопками
 - (void)clickButton: (UIButton *)button
 {
     [self willMoveToParentViewController:nil];
     [self.view removeFromSuperview];
     [self removeFromParentViewController];
 }
-
+// передача в таблицу станции и события, плюс отображение "типо" загрузки и запуск анимации в ней
 - (void)getStationForUrl:(NSString *)station plusEvent:(NSString *)event
 {
     self.stationtForAirTableForThisVC = [NSString new];
@@ -80,13 +96,27 @@ static const CGFloat tableTop = 0.f;
     
     [self.airtable oneOfTheLastStepToGetStationAndEvent:self.stationtForAirTableForThisVC plusEventOfVC:self.eventForAirTableForThisVC];
     
+    if (self.progress.hidden == YES)
+    {
+        self.progress.hidden = NO;
+    }
+    
+    [self performSelector:@selector(hideWait) withObject:nil afterDelay:5.0];
+    
+    [self.progress startAnimation];
+    
 }
-
+// скрытия "типо" загрузки
+- (void)hideWait
+{
+    self.progress.hidden = YES;
+}
+// создание таблицы
 - (void)initAirtable
 {
     self.airtable = [ATPAirTableView new];
     
-    [self.airtable oneOfTheLastStepToGetStationAndEvent:self.stationtForAirTableForThisVC plusEventOfVC:self.eventForAirTableForThisVC];
+    [self.airtable oneOfTheLastStepToGetStationAndEvent:self.stationtForAirTableForThisVC plusEventOfVC:self.eventForAirTableForThisVC];//передача станции и событий
     
     
     [self.view addSubview:self.airtable];
@@ -97,6 +127,7 @@ static const CGFloat tableTop = 0.f;
     self.header.translatesAutoresizingMaskIntoConstraints = NO;
     self.button.translatesAutoresizingMaskIntoConstraints = NO;
     self.airtable.translatesAutoresizingMaskIntoConstraints = NO;
+    self.progress.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSArray<NSLayoutConstraint *> *constraints =
     @[
@@ -111,51 +142,17 @@ static const CGFloat tableTop = 0.f;
       [self.airtable.topAnchor constraintEqualToAnchor:self.header.bottomAnchor constant:tableTop],
       [self.airtable.widthAnchor constraintEqualToConstant:self.view.frame.size.width],
       [self.airtable.heightAnchor constraintEqualToConstant:self.view.frame.size.height-self.header.frame.size.height],
+      
+      [self.progress.topAnchor constraintEqualToAnchor:self.header.bottomAnchor constant:tableTop],
+      [self.progress.widthAnchor constraintEqualToConstant:self.view.frame.size.width],
+      [self.progress.heightAnchor constraintEqualToConstant:self.view.frame.size.height-self.header.frame.size.height],
       ];
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
-- (void)loadingContinuesWithProgress:(double)progress
-{
-    
-}
 
 
 
 
 @end
 
-//schedule =     (
-//                {
-//                    arrival = "<null>";
-//                    days = "17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31\U00a0\U0438\U044e\U043b\U044f, 1, 2, 3, 4, 5\U00a0\U0430\U0432\U0433\U0443\U0441\U0442\U0430, \U2026";
-//                    departure = "2019-07-17T00:05:00+03:00";//время отправления
-//                    "except_days" = "<null>";
-//                    "is_fuzzy" = 0;
-//                    platform = "";
-//                    stops = "";
-//                    terminal = "<null>";
-//                    thread =             {
-//                        carrier =                 {
-//                            code = 26;
-//                            codes =                     {
-//                                iata = SU;
-//                                icao = AFL;
-//                                sirena = "\U0421\U0423";
-//                            };
-//                            title = "\U0410\U044d\U0440\U043e\U0444\U043b\U043e\U0442";//направление
-//                        };
-//                        "express_type" = "<null>";
-//                        number = "SU 1424";// номер рейса
-//                        "short_title" = "\U041c\U043e\U0441\U043a\U0432\U0430 \U2014 \U0427\U0435\U043b\U044f\U0431\U0438\U043d\U0441\U043a";//тоже направление
-//                        title = "\U041c\U043e\U0441\U043a\U0432\U0430 \U2014 \U0427\U0435\U043b\U044f\U0431\U0438\U043d\U0441\U043a";
-//                        "transport_subtype" =                 {
-//                            code = "<null>";
-//                            color = "<null>";
-//                            title = "<null>";
-//                        };
-//                        "transport_type" = plane;
-//                        uid = "SU-1424_2_c26_547";
-//                        vehicle = "Airbus A320";
-//                    };
-//                },

@@ -18,7 +18,6 @@
 		35FC3CB922DC9FA000B1502F /* ATPVKOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CB822DC9FA000B1502F /* ATPVKOViewController.m */; };
 		35FC3CBC22DC9FE000B1502F /* ATPSVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CBB22DC9FE000B1502F /* ATPSVOViewController.m */; };
 		35FC3CC522DCA5B700B1502F /* ATPButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CC422DCA5B700B1502F /* ATPButtonViewController.m */; };
-		35FC3CC722DCC7E900B1502F /* const.strings in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3CC622DCC7E900B1502F /* const.strings */; };
 		35FC3CCB22DCD62000B1502F /* 3diuvhqe.png in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3CCA22DCD61F00B1502F /* 3diuvhqe.png */; };
 		35FC3CCD22DCD63500B1502F /* logo_h_rus_l.png in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3CCC22DCD63500B1502F /* logo_h_rus_l.png */; };
 		35FC3CD522DCE08500B1502F /* 974e1d44c5.png in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3CD422DCE08500B1502F /* 974e1d44c5.png */; };
@@ -27,6 +26,7 @@
 		35FC3CE622DE20E800B1502F /* ATPAirTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CE522DE20E800B1502F /* ATPAirTableView.m */; };
 		35FC3CEE22DF063100B1502F /* ATPNetworkSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CED22DF063100B1502F /* ATPNetworkSearch.m */; };
 		35FC3CF122DF06A400B1502F /* ATPNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3CF022DF06A400B1502F /* ATPNetworkService.m */; };
+		35FDB94122E1EDED00B4AEC9 /* ATPAirTableForWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FDB94022E1EDED00B4AEC9 /* ATPAirTableForWaitView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,6 @@
 		35FC3CBB22DC9FE000B1502F /* ATPSVOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPSVOViewController.m; sourceTree = "<group>"; };
 		35FC3CC322DCA5B700B1502F /* ATPButtonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPButtonViewController.h; sourceTree = "<group>"; };
 		35FC3CC422DCA5B700B1502F /* ATPButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPButtonViewController.m; sourceTree = "<group>"; };
-		35FC3CC622DCC7E900B1502F /* const.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = const.strings; sourceTree = "<group>"; };
 		35FC3CCA22DCD61F00B1502F /* 3diuvhqe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3diuvhqe.png; sourceTree = "<group>"; };
 		35FC3CCC22DCD63500B1502F /* logo_h_rus_l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_h_rus_l.png; sourceTree = "<group>"; };
 		35FC3CD422DCE08500B1502F /* 974e1d44c5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 974e1d44c5.png; sourceTree = "<group>"; };
@@ -84,6 +83,8 @@
 		35FC3CED22DF063100B1502F /* ATPNetworkSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPNetworkSearch.m; sourceTree = "<group>"; };
 		35FC3CEF22DF06A400B1502F /* ATPNetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPNetworkService.h; sourceTree = "<group>"; };
 		35FC3CF022DF06A400B1502F /* ATPNetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPNetworkService.m; sourceTree = "<group>"; };
+		35FDB93F22E1EDED00B4AEC9 /* ATPAirTableForWaitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPAirTableForWaitView.h; sourceTree = "<group>"; };
+		35FDB94022E1EDED00B4AEC9 /* ATPAirTableForWaitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPAirTableForWaitView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +139,6 @@
 				35FC3C8322DC9E8A00B1502F /* AppDelegate.m */,
 				35FC3CC322DCA5B700B1502F /* ATPButtonViewController.h */,
 				35FC3CC422DCA5B700B1502F /* ATPButtonViewController.m */,
-				35FC3CC622DCC7E900B1502F /* const.strings */,
 				35FC3CDC22DE0B4900B1502F /* AirTable */,
 				35FC3CDB22DE0AC100B1502F /* MainVC */,
 				35FC3C8822DC9E8A00B1502F /* Main.storyboard */,
@@ -210,6 +210,8 @@
 				35FC3CE222DE1C4B00B1502F /* ATPAirTableViewCell.m */,
 				35FC3CE422DE20E800B1502F /* ATPAirTableView.h */,
 				35FC3CE522DE20E800B1502F /* ATPAirTableView.m */,
+				35FDB93F22E1EDED00B4AEC9 /* ATPAirTableForWaitView.h */,
+				35FDB94022E1EDED00B4AEC9 /* ATPAirTableForWaitView.m */,
 			);
 			path = Airtable;
 			sourceTree = "<group>";
@@ -330,7 +332,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				35FC3CCB22DCD62000B1502F /* 3diuvhqe.png in Resources */,
-				35FC3CC722DCC7E900B1502F /* const.strings in Resources */,
 				35FC3CD522DCE08500B1502F /* 974e1d44c5.png in Resources */,
 				35FC3C8F22DC9E8D00B1502F /* LaunchScreen.storyboard in Resources */,
 				35FC3CCD22DCD63500B1502F /* logo_h_rus_l.png in Resources */,
@@ -363,6 +364,7 @@
 				35FC3CEE22DF063100B1502F /* ATPNetworkSearch.m in Sources */,
 				35FC3CD822DCF29300B1502F /* ATPAirViewController.m in Sources */,
 				35FC3CBC22DC9FE000B1502F /* ATPSVOViewController.m in Sources */,
+				35FDB94122E1EDED00B4AEC9 /* ATPAirTableForWaitView.m in Sources */,
 				35FC3C9222DC9E8D00B1502F /* main.m in Sources */,
 				35FC3CE622DE20E800B1502F /* ATPAirTableView.m in Sources */,
 				35FC3CE322DE1C4B00B1502F /* ATPAirTableViewCell.m in Sources */,

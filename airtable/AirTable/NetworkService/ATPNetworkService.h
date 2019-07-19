@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ATPNetworkService : NSObject<NetworkServiceIntputProtocol, NSURLSessionDelegate, NSURLSessionDownloadDelegate, NSURLSessionDataDelegate>
+@interface ATPNetworkService : NSObject<NetworkServiceIntputProtocol, NSURLSessionDelegate, NSURLSessionDataDelegate>
 
 @property (nonatomic, weak) id<NetworkServiceOutputProtocol> output;
 

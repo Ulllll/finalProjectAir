@@ -9,10 +9,7 @@
 @protocol NetworkServiceOutputProtocol <NSObject>
 @optional
 
-- (void)loadingContinuesWithProgress:(double)progress;
 - (void)loadingIsDoneWithDataRecieved:(NSDictionary *)dataRecieved;
-
-
 
 @end
 
@@ -20,10 +17,6 @@
 @optional
 
 - (void)configureUrlSessionWithParams:(NSDictionary *)params;
-- (void)startImageLoading;
-
-- (BOOL)resumeNetworkLoading;
-- (void)suspendNetworkLoading;
 
 - (void)getDataForTable: (NSString *)event
                   plusStation:(NSString *)station;

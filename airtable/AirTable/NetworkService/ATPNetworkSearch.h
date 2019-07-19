@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ATPNetworkSearch : NSObject
 
 + (NSString *)URLForAirTable:(NSString *)event
-                 plusStation:(NSString *)station;
+                 plusStation:(NSString *)station;//для передачи станции и события
 
 @end
 

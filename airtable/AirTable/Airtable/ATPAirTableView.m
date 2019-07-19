@@ -36,7 +36,7 @@ static const CGFloat heightOgRows = 65.f;
     }
     return self;
 }
-
+//окончательная передача станции и события
 - (void)oneOfTheLastStepToGetStationAndEvent:(NSString *)station plusEventOfVC:(NSString *)event
 {
     _okGetStation = [NSString new];
@@ -104,9 +104,8 @@ static const CGFloat heightOgRows = 65.f;
 {
     NSString *totalString = [[dataRecieved objectForKey:@"pagination"] objectForKey:@"total"];
     NSInteger totalInt = totalString.integerValue;
-
-    self.allScheduleForTable = [NSMutableArray new];
     
+    self.allScheduleForTable = [NSMutableArray new];
     
     NSDate *dateNow = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -117,13 +116,13 @@ static const CGFloat heightOgRows = 65.f;
     for (NSUInteger i = 0; i < totalInt; i++)
     {
         NSMutableDictionary *oneSheduleForGetData = dataRecieved[@"schedule"][i];
-        //       NSLog(@"%@", oneSheduleForGetData);
         NSString *hourForDiffPlane = oneSheduleForGetData[self.okGetEvent];
         NSString *isHourEqualHourNow = [hourForDiffPlane substringWithRange:NSMakeRange(11, 2)];
         NSInteger hourGo = timeNow.integerValue;
         NSInteger hourNow = isHourEqualHourNow.integerValue;
         if (hourNow >= hourGo)
         {
+            //запись только тех рейсов, которые отправляются или прилетают позже часа на телефоне
             [self.allScheduleForTable addObject:oneSheduleForGetData];
         }
     }
