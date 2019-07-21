@@ -10,8 +10,11 @@
 #import "ATPAirTableViewCell.h"
 #import "ATPNetworkServiceProtocol.h"
 #import "ATPNetworkService.h"
+@import UserNotifications;
 
 static const CGFloat heightOgRows = 65.f;
+static const CGFloat fontSizeForPushButton = 25.f;
+
 
 @interface ATPAirTableView()<UITableViewDelegate, UITableViewDataSource, NSLayoutManagerDelegate, NetworkServiceOutputProtocol>
 
@@ -20,6 +23,7 @@ static const CGFloat heightOgRows = 65.f;
 @property (nonatomic, strong) ATPNetworkService *networkService;
 @property (nonatomic, strong) NSString *okGetStation;
 @property (nonatomic, strong) NSString *okGetEvent;
+@property (nonatomic, strong) UIButton *btn;
 
 @end
 
@@ -68,6 +72,28 @@ static const CGFloat heightOgRows = 65.f;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.allScheduleForTable.count;
+}
+// кнопка на напоминания
+- (void)initBtn
+{
+    self.btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btn.frame =CGRectMake(0.f, 0.f, self.customCell.frame.size.width, self.customCell.frame.size.height-5.f);
+    
+    NSString *textForButton = @"напомнить про рейс";
+    textForButton = textForButton.uppercaseString;
+    [self.btn setTitle:textForButton forState:UIControlStateNormal];
+    self.btn.titleLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:fontSizeForPushButton];
+    [self.btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    self.btn.backgroundColor = [UIColor whiteColor];
+    
+    [self.btn addTarget:self action:@selector(needPush:) forControlEvents:UIControlEventTouchUpInside];
+}
+// запрос на уведомление
+- (void)needPush: (UIButton *)button
+{
+    [self sheduleLocalNotification];
+    self.btn.hidden = YES;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,5 +160,79 @@ static const CGFloat heightOgRows = 65.f;
 
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.customCell = [tableView cellForRowAtIndexPath:indexPath];
+    [self initBtn];
+    [self.customCell addSubview:self.btn];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+     self.customCell = [tableView cellForRowAtIndexPath:indexPath];
+     self.btn.hidden = YES;
+}
+// уведомление
+- (void)sheduleLocalNotification
+{
+    NSString *ourEvent;
+    UNMutableNotificationContent *content = [UNMutableNotificationContent new];
+    content.title = @"Напоминание о рейсе";
+    if ([self.okGetEvent isEqualToString:@"arrival"])
+    {
+        ourEvent = @"прибывает";
+        
+    } else if ([self.okGetEvent isEqualToString:@"departure"])
+            {
+                ourEvent = @"отправляется";
+            }
+    content.body = [NSString stringWithFormat:@"Ваш рейс %@ №\"%@\" %@ в %@", self.customCell.disLabel.text, self.customCell.number.text, ourEvent, self.customCell.dataRightLabel.text];
+    content.sound = [UNNotificationSound defaultSound];
+    
+    UNNotificationTrigger *triggerDate = [self dateTrigger];
+    
+    NSString *identifier = @"NotificationId";
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier
+                                                                          content:content trigger:triggerDate];
+    
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error)
+     {
+         if (error)
+         {
+             NSLog(@"Error:%@",error);
+         }
+     }];
+}
+//настройка
+- (UNCalendarNotificationTrigger *)dateTrigger
+{
+    NSDate *getDateNow = [NSDate date];
+    NSDateFormatter *getDateFormatter = [[NSDateFormatter alloc] init];
+    [getDateFormatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *date = [getDateFormatter stringFromDate:getDateNow];
+    
+    //получение одного часа назад
+    NSString *getHour = [self.customCell.dataRightLabel.text substringWithRange:NSMakeRange(0, 2)];
+    NSInteger subHour = getHour.integerValue;
+    subHour--;
+    
+    // время на час назад
+    NSString *final = [self.customCell.dataRightLabel.text substringWithRange:NSMakeRange(3, 5)];
+    final = [NSString stringWithFormat:@"%li:%@", subHour, final];
+    
+    // дата на час назад от времени в ячейке
+    date = [NSString stringWithFormat:@"%@T%@", date, final];
+    [getDateFormatter setDateFormat:@"YYYY-MM-dd'T'HH:mm:ss"];
+    getDateNow = [getDateFormatter dateFromString:date];
+    
+    NSDateComponents *triggerDate = [[NSCalendar currentCalendar]
+                                     components: NSCalendarUnitYear +
+                                     NSCalendarUnitMonth + NSCalendarUnitDay +
+                                     NSCalendarUnitHour + NSCalendarUnitMinute +
+                                     NSCalendarUnitSecond fromDate:getDateNow];
+    
+    return [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:triggerDate repeats:NO];
+}
 
 @end

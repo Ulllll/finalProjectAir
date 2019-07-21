@@ -17,7 +17,7 @@
     
     NSDate *getDateNow = [NSDate date];
     NSDateFormatter *getDateFormatter = [[NSDateFormatter alloc] init];
-    [getDateFormatter setDateFormat:@"YYYY-MM-HH"];
+    [getDateFormatter setDateFormat:@"YYYY-MM-dd"];
     NSString *date = [getDateFormatter stringFromDate:getDateNow];
     
     NSString *search = [NSString stringWithFormat:@"https://api.rasp.yandex.net/v3.0/schedule/?apikey=%@&station=%@&date=%@&transport_type=plane&event=%@&limit=2200", APIKey, station, date, event];

@@ -36,6 +36,7 @@ static const CGFloat labelFontSize = 17.f;
         _disLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:labelFontSize];
         [self.contentView addSubview:_disLabel];
 
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         [self setupConstraints];
     }
@@ -66,12 +67,6 @@ static const CGFloat labelFontSize = 17.f;
       [self.dataRightLabel.topAnchor constraintEqualToAnchor:self.topAnchor constant:self.frame.size.height/4],
       ];
     [NSLayoutConstraint activateConstraints:constraints];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end
