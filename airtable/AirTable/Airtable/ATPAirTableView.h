@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)oneOfTheLastStepToGetStationAndEvent: (NSString *)station plusEventOfVC: (NSString *)event;//окончательная передача станции и события (тянется с основного vc, через вьюшку с кнопками и вьюшку с таблицей и кнопкой
 
+
 @end
 
 NS_ASSUME_NONNULL_END

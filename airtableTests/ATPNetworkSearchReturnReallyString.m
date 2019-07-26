@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "ATPNetworkSearch.h"
 
 @interface ATPNetworkSearchReturnReallyString : XCTestCase
 
@@ -14,24 +15,51 @@
 
 @implementation ATPNetworkSearchReturnReallyString
 
-- (void)setUp {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+- (void)setUp
+{
+    [super setUp];
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+- (void)tearDown
+{
+    [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testIsDepartureDME
+{
+    NSString *isRealString = [ATPNetworkSearch URLForAirTable:@"departure" plusStation:@"s9600216"];
+    XCTAssertNotNil(isRealString);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testIsArrivalDME
+{
+    NSString *isRealString = [ATPNetworkSearch URLForAirTable:@"arrival" plusStation:@"s9600216"];
+    XCTAssertNotNil(isRealString);
 }
+
+- (void)testIsDepartureVKO
+{
+    NSString *isRealString = [ATPNetworkSearch URLForAirTable:@"departure" plusStation:@"s9600215"];
+    XCTAssertNotNil(isRealString);
+}
+
+- (void)testIsArrivalVKO
+{
+    NSString *isRealString = [ATPNetworkSearch URLForAirTable:@"arrival" plusStation:@"s9600215"];
+    XCTAssertNotNil(isRealString);
+}
+
+- (void)testIsDepartureSVO
+{
+    NSString *isRealString = [ATPNetworkSearch URLForAirTable:@"departure" plusStation:@"s9600213"];
+    XCTAssertNotNil(isRealString);
+}
+
+- (void)testIsArrivalSVO
+{
+    NSString *isRealString = [ATPNetworkSearch URLForAirTable:@"arrival" plusStation:@"s9600213"];
+    XCTAssertNotNil(isRealString);
+}
+
 
 @end

@@ -27,6 +27,7 @@ static const CGFloat transformButtonOut = 1.0;
 
 @property (nonatomic, strong) UIButton *upButton;
 @property (nonatomic, strong) UIButton *downButton;
+@property (nonatomic, strong) UIButton *linkButton;
 @property (nonatomic, strong) UIColor *upColor;
 @property (nonatomic, strong) UIColor *downColor;
 @property (nonatomic, strong) NSString *imgName;
@@ -36,6 +37,7 @@ static const CGFloat transformButtonOut = 1.0;
 @property (nonatomic, strong) NSString *eventForAirTable;
 @property (nonatomic, strong) NSString *textForButtonTo;
 @property (nonatomic, strong) NSString *textForButtonFrom;
+
 
 @end
 
@@ -48,6 +50,7 @@ static const CGFloat transformButtonOut = 1.0;
     self.view.backgroundColor = [UIColor whiteColor];
     [self createLogo];
     [self createButton:self.upColor plusColor:self.downColor];
+    [self createLink];
 
     self.airtable = [[ATPAirViewController alloc]init];
     
@@ -116,6 +119,29 @@ static const CGFloat transformButtonOut = 1.0;
     self.logo.translatesAutoresizingMaskIntoConstraints = NO;
     
 }
+
+- (void)createLink
+{
+    self.linkButton = [UIButton buttonWithType:UIButtonTypeCustom];;
+
+    [self.linkButton setImage:[UIImage imageNamed:@"api"] forState:UIControlStateNormal];
+    [self.view addSubview:self.linkButton];
+    
+    [self.linkButton addTarget:self action:@selector(clickclick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.linkButton addTarget:self action:@selector(clickDown:) forControlEvents:UIControlEventTouchDown];
+}
+
+- (void)clickclick: (UIButton *)button
+{
+    NSURL *link = [NSURL URLWithString:@"https://rasp.yandex.ru"];
+    [[UIApplication sharedApplication] openURL:link];
+}
+
+- (void)clickDown: (UIButton *)button
+{
+    button.adjustsImageWhenHighlighted = NO;
+}
+
 // анимация для долгого нажатия
 - (void)pushButton: (UIButton *)button
 {
@@ -160,6 +186,7 @@ static const CGFloat transformButtonOut = 1.0;
     self.upButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.downButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.logo.translatesAutoresizingMaskIntoConstraints = NO;
+    self.linkButton.translatesAutoresizingMaskIntoConstraints = NO;
 
     NSArray<NSLayoutConstraint *> *constraints =
     @[
@@ -172,6 +199,11 @@ static const CGFloat transformButtonOut = 1.0;
       [self.downButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:(self.view.frame.size.width/2)-(self.view.frame.size.width/2)/2],
       [self.downButton.widthAnchor constraintEqualToConstant:(self.view.frame.size.width/2)],
       [self.downButton.heightAnchor constraintEqualToConstant:heightButton],
+      
+      [self.linkButton.topAnchor constraintEqualToAnchor:self.downButton.bottomAnchor constant:spacingBetweenButton],
+      [self.linkButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:(self.view.frame.size.width/2)-(self.view.frame.size.width/2)/2],
+      [self.linkButton.widthAnchor constraintEqualToConstant:(self.view.frame.size.width/2)],
+      [self.linkButton.heightAnchor constraintEqualToConstant:heightButton],
 
       [self.logo.widthAnchor constraintEqualToConstant:self.view.frame.size.width-subForWidthForImage],
       [self.logo.heightAnchor constraintEqualToConstant:imgHeight],

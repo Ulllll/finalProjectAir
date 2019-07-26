@@ -21,7 +21,6 @@
     NSString *date = [getDateFormatter stringFromDate:getDateNow];
     
     NSString *search = [NSString stringWithFormat:@"https://api.rasp.yandex.net/v3.0/schedule/?apikey=%@&station=%@&date=%@&transport_type=plane&event=%@&limit=2200", APIKey, station, date, event];
-    NSLog(@"%@", search);
     
     return search;
     

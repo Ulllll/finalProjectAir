@@ -17,7 +17,7 @@ static const CGFloat buttonHeight = 50.f;
 static const CGFloat buttonTop = 40.f;
 static const CGFloat tableTop = 0.f;
 
-@interface ATPAirViewController ()
+@interface ATPAirViewController ()<UISearchBarDelegate>
 
 @property (nonatomic, strong) UIView *header;
 @property (nonatomic, strong) UIButton *button;
@@ -78,6 +78,7 @@ static const CGFloat tableTop = 0.f;
     
     [self.button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
 }
+
 // переход назад к вьюшке с кнопками
 - (void)clickButton: (UIButton *)button
 {
@@ -149,6 +150,7 @@ static const CGFloat tableTop = 0.f;
       ];
     [NSLayoutConstraint activateConstraints:constraints];
 }
+
 
 
 
